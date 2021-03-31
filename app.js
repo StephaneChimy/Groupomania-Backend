@@ -14,7 +14,7 @@ app.use(helmet());
 //app.use(cors({origin:["https://sc-groupomania.netlify.app", "http://localhost:3001"] credentials: true}));
 // Add CORS in the headers
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "https://sc-groupomania.netlify.app");
   res.setHeader(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
