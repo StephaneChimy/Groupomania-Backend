@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "groupomania",
-    "password": "groupomania",
-    "database": "groupomania_development",
-    "host": "127.0.0.1",
+    "username": "tq1h52av7z1qd9qb",
+    "password": "aet6qlzxg8rd1351",
+    "database": "ib3gs4lfzqlt1asj",
+    "host": "yvu4xahse0smimsc.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
