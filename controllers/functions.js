@@ -97,9 +97,9 @@ function sendNewToken(userData, res) {
   return res
     .status(200)
     // expiration of cookies for 2 hours
-    .cookie("token", newToken, { maxAge: 7200000, httpOnly: true })
-    .cookie("groupomania", true, { maxAge: 7200000, httpOnly: false })
-    .cookie("groupomaniaId", userData.id, { maxAge: 7200000, httpOnly: false })
+    .cookie("token", newToken, { maxAge: 7200000, httpOnly: true, sameSite: 'None', secure: true })
+    .cookie("groupomania", true, { maxAge: 7200000, httpOnly: false, sameSite: 'None', secure: true })
+    .cookie("groupomaniaId", userData.id, { maxAge: 7200000, httpOnly: false, sameSite: 'None', secure: true })
     .json({
       userId: userData.id,
       token: newToken,
