@@ -106,21 +106,21 @@ function sendNewToken(userData, res) {
         httpOnly: true,
         sameSite: "None",
         secure: true,
-        domain: "sc-groupomania.netlify.app",
+        domain: ".sc-groupomania.netlify.app",
       })
       .cookie("groupomania", true, {
         maxAge: 7200000,
         httpOnly: false,
         sameSite: "None",
         secure: true,
-        domain: "sc-groupomania.netlify.app",
+        domain: ".sc-groupomania.netlify.app",
       })
       .cookie("groupomaniaId", userData.id, {
         maxAge: 7200000,
         httpOnly: false,
         sameSite: "None",
         secure: true,
-        domain: "sc-groupomania.netlify.app",
+        domain: ".sc-groupomania.netlify.app",
       })
       .json({
         userId: userData.id,
