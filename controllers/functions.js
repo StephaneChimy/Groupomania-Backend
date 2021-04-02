@@ -62,7 +62,10 @@ async function incrementLoginAttempt(emailHash, user) {
 async function blockUserAccount(emailHash, user) {
   console.log("Dans blockUserAccount");
   return await user.update(
-    { login_attempts: user.login_attempts + 1, lock_until: Date.now() + LOCK_TIME },
+    {
+      login_attempts: user.login_attempts + 1,
+      lock_until: Date.now() + LOCK_TIME,
+    },
     {
       where: {
         emailHash: emailHash,
@@ -92,18 +95,38 @@ function sendNewToken(userData, res) {
       expiresIn: "2h",
     }
   );
-  
+
   console.log("send new token");
-  return res
-    .status(200)
-    // expiration of cookies for 2 hours
-    .cookie("token", newToken, { maxAge: 7200000, httpOnly: true, sameSite: 'None', secure: true })
-    .cookie("groupomania", true, { maxAge: 7200000, httpOnly: false, sameSite: 'None', secure: true })
-    .cookie("groupomaniaId", userData.id, { maxAge: 7200000, httpOnly: false, sameSite: 'None', secure: true })
-    .json({
-      userId: userData.id,
-      token: newToken,
-    });
+  return (
+    res
+      .status(200)
+      // expiration of cookies for 2 hours
+      .cookie("token", newToken, {
+        maxAge: 7200000,
+        httpOnly: true,
+        sameSite: "None",
+        secure: true,
+        domain: "sc-groupomania.netlify.app",
+      })
+      .cookie("groupomania", true, {
+        maxAge: 7200000,
+        httpOnly: false,
+        sameSite: "None",
+        secure: true,
+        domain: "sc-groupomania.netlify.app",
+      })
+      .cookie("groupomaniaId", userData.id, {
+        maxAge: 7200000,
+        httpOnly: false,
+        sameSite: "None",
+        secure: true,
+        domain: "sc-groupomania.netlify.app",
+      })
+      .json({
+        userId: userData.id,
+        token: newToken,
+      })
+  );
 }
 
 function getInfosUserFromToken(req, res) {
@@ -112,9 +135,9 @@ function getInfosUserFromToken(req, res) {
     const token = req.cookies.token;
     const decodedToken = jwt.verify(token, "RANDOM_TOKEN_SECRET");
     let userInfos = {
-      userId :decodedToken.userId,
-      admin : decodedToken.admin
-    }
+      userId: decodedToken.userId,
+      admin: decodedToken.admin,
+    };
     userId = decodedToken.userId;
     // admin = decodedToken.admin;
     if (userId == -1) {
@@ -148,7 +171,6 @@ function isAdmin(req, res) {
     });
   }
 }
-
 
 function eraseCookie(res) {
   return res
