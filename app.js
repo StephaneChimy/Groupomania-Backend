@@ -11,7 +11,7 @@ const xss = require('xss-clean');
 const app = express();
 
 app.use(helmet());
-app.use(cors({origin:["https://sc-groupomania.netlify.app", "http://localhost:3001", "https://sc-groupomania-backend.herokuapp.com/"], credentials: true}));
+app.use(cors({origin:["https://sc-groupomania.netlify.app", "http://localhost:3001", "https://sc-groupomania-backend.herokuapp.com", "groupomania-backend.stephane-chimy.com"], credentials: true}));
 //app.use(cors());
 app.use(cookieParser());
 app.use(express.urlencoded({extended: true}));
