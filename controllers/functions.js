@@ -105,21 +105,21 @@ function sendNewToken(userData, res) {
         maxAge: 7200000,
         httpOnly: true,
         sameSite: "None",
-        secure: true,
+        
         
       })
       .cookie("groupomania", true, {
         maxAge: 7200000,
         httpOnly: false,
         sameSite: "None",
-        secure: true,
+        
         
       })
       .cookie("groupomaniaId", userData.id, {
         maxAge: 7200000,
         httpOnly: false,
         sameSite: "None",
-        secure: true,
+        
         
       })
       .json({
