@@ -106,7 +106,7 @@ function sendNewToken(userData, res) {
         httpOnly: true,
         sameSite: "None",
         secure: true,
-        domain: ".stephane-chimy.com"
+        domain: "stephane-chimy.com"
         
       })
       .cookie("groupomania", true, {
@@ -114,7 +114,7 @@ function sendNewToken(userData, res) {
         httpOnly: false,
         sameSite: "None",
         secure: true,
-        domain: ".stephane-chimy.com"
+        domain: "stephane-chimy.com"
         
       })
       .cookie("groupomaniaId", userData.id, {
@@ -122,7 +122,7 @@ function sendNewToken(userData, res) {
         httpOnly: false,
         sameSite: "None",
         secure: true,
-        domain: ".stephane-chimy.com"
+        domain: "stephane-chimy.com"
         
       })
       .json({
