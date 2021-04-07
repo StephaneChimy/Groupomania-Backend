@@ -106,7 +106,7 @@ function sendNewToken(userData, res) {
         httpOnly: true,
         sameSite: "None",
         secure: true,
-        domain: 'sc-groupomania.netlify.app/'
+        domain: 'sc-groupomania.netlify.app'
         
       })
       .cookie("groupomania", true, {
@@ -114,7 +114,7 @@ function sendNewToken(userData, res) {
         httpOnly: false,
         sameSite: "None",
         secure: true,
-        domain: 'sc-groupomania.netlify.app/'
+        domain: 'sc-groupomania.netlify.app'
         
       })
       .cookie("groupomaniaId", userData.id, {
@@ -122,7 +122,7 @@ function sendNewToken(userData, res) {
         httpOnly: false,
         sameSite: "None",
         secure: true,
-        domain: 'sc-groupomania.netlify.app/'
+        domain: 'sc-groupomania.netlify.app'
         
       })
       .json({
